@@ -1,7 +1,28 @@
 <div class="p-3">
  <div class="card">
    <div class="card-body">
-     <h3><p>New Product works!</p></h3>
+     <div class="row">
+         <div class="col-md-6">
+           {{formProduct.value | json}}
+           <form  [formGroup]="formProduct"  (submit)="handleSaveProduct()">
+             <div class="mb-3  form-group">
+               <label  class="form-label" >name</label>
+               <input class="form-control" formControlName="name" type="text">
+             </div>
+             <div   class="mb-3  form-group">
+               <label class="form-label" >price</label>
+               <input class="form-control"  formControlName="price" type="number">
+             </div>
+             <div   class="mb-3  form-group">
+               <label  class="form-label"  >checked</label>
+               <input class="form-check" formControlName="checked" type="checkbox">
+             </div>
+             <button type="submit" class="btn btn-success">Enrégistrer</button>
+           </form>
+
+
+         </div>
+     </div>
    </div>
  </div>
 </div>

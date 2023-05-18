@@ -1,8 +1,17 @@
 <div class="p-3">
  <div class="card">
    <div class="card-body">
+     <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <input  [(ngModel)]="keyword" class="form-control p-1" type="search">
+            <button class="btn btn-outline-success ms-1" (click)="searchProduct()"><i class="bi bi-search"></i></button>
+          </div>
+
+        </div>
+     </div>
      <table class="table  table-striped">
-       <thead><tr><th>name</th> <th>price</th> <th>checked</th></tr></thead>
+       <thead><tr><th>name</th> <th>price</th> <th>checked</th> <th>delete</th></tr></thead>
        <tbody>
        <tr  *ngFor="let  product of products">
          <th>{{product.name}}</th>
@@ -11,8 +20,17 @@
            <button (click)="handleUpdateCheck(product)" class="btn btn-outline-success"> <i [class]="product.checked ? 'bi bi-check ' : ' bi bi-circle'"></i></button>
 
          </th>
+         <th>
+           <button (click)="handleDeleteProduct(product)" class="btn btn-outline-danger"> <i   class="bi bi-trash"></i></button>
+
+         </th>
        </tr>
        </tbody>
+       <div>
+         <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+         <span>Page {{ currentPage }} of {{ totalPages }}</span>
+         <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+       </div>
      </table>
    </div>
  </div>
