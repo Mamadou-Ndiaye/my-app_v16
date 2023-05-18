@@ -1,0 +1,19 @@
+<div class="p-3">
+ <div class="card">
+   <div class="card-body">
+     <table class="table  table-striped">
+       <thead><tr><th>name</th> <th>price</th> <th>checked</th></tr></thead>
+       <tbody>
+       <tr  *ngFor="let  product of products">
+         <th>{{product.name}}</th>
+         <th>{{product.price}}</th>
+         <th>
+           <button (click)="handleUpdateCheck(product)" class="btn btn-outline-success"> <i [class]="product.checked ? 'bi bi-check ' : ' bi bi-circle'"></i></button>
+
+         </th>
+       </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+</div>

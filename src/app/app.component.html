@@ -1,4 +1,14 @@
-<button class="btn btn-danger">
-  Coeur
-  <i class="bi bi-heart-fill"></i>
-</button>
+<div class="container-fluid mt-1">
+  <nav class="navbar navbar-expand-lg">
+      <ul class="navbar-nav">
+       <li  *ngFor="let action of actions">
+          <button (click)="setCurrentAction(action)" class="m-1" routerLink="{{action.path}}"   [class]='action == currentAction ? " btn btn-success" : "btn btn-outline-secondary"   '>
+              {{action.title}}
+             <i class="{{action.icon}}"></i>
+          </button>
+       </li>
+      </ul>
+  </nav>
+
+</div>
+<router-outlet></router-outlet>
